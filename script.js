@@ -1,9 +1,13 @@
-// Tahun otomatis
-document.getElementById('y').textContent = new Date().getFullYear();
+// isi tahun otomatis (aman kalau elemen tidak ada)
+const y = document.getElementById('y');
+if (y) y.textContent = new Date().getFullYear();
 
-// Dark mode toggle
+// tombol dark mode
 const btn = document.getElementById('toggle');
-btn.onclick = () => document.body.classList.toggle('dark');
-
-console.log("Portofolio Ichsan Rais sudah siap 🚀");
-
+if (btn) {
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+} else {
+  console.warn('Tombol #toggle tidak ditemukan');
+}
