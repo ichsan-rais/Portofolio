@@ -89,4 +89,66 @@ nav a { margin-right: 12px; text-decoration: none; color: var(--fg); }
 
 .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
+/* ===========================
+   HAMBURGER MENU (MOBILE)
+=========================== */
+
+/* tombol hamburger disembunyikan default (desktop) */
+.menu-btn { /* ADD */
+  display: none;
+}
+
+/* panel nav default (desktop) tetap baris biasa */
+#nav { /* hanya penegas, biarkan style nav-mu yang lama tetap berlaku */ }
+
+/* mobile rules */
+@media (max-width: 768px) {
+  /* tampilkan tombol hamburger di HP */
+  .menu-btn { /* ADD */
+    display: inline-block;
+  }
+
+  /* nav di mobile jadi panel dropdown fixed di bawah header */
+  #nav { /* ADD */
+    position: fixed;
+    top: calc(var(--headerH));     /* pakai tinggi header agar tidak ketutup */
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid #e5e7eb;
+    padding: 12px 16px;
+
+    /* animasi slide */
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .25s ease, opacity .25s ease;
+
+    /* susun link jadi kolom */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    z-index: 999; /* di atas konten */
+  }
+
+  /* saat dibuka */
+  #nav.open { /* ADD */
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* rapikan link di mobile */
+  #nav a { /* ADD */
+    margin-right: 0;         /* override margin-right desktop */
+    padding: 8px 0;
+  }
+
+  /* header: pastikan di atas semua */
+  header {
+    z-index: 1000; /* ADD: di atas panel nav */
+  }
+}
+
 footer { padding: 24px; text-align: center; color: var(--muted); }

@@ -61,3 +61,45 @@ if (!prefersReduced) {
   // jika user minta kurangi animasi, tampilkan langsung
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
 }
+
+/* ===============================
+   HAMBURGER MENU (ADD)
+   - Toggle panel nav di mobile
+   - Tutup saat klik link, tekan Esc, atau resize ke desktop
+================================= */
+const menuBtn = document.getElementById('menu-toggle');   // tombol ☰
+const navPanel = document.getElementById('nav');          // panel nav
+
+function closeMenu() {
+  if (!navPanel) return;
+  navPanel.classList.remove('open');
+  if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+}
+
+function toggleMenu() {
+  if (!navPanel) return;
+  const open = navPanel.classList.toggle('open');
+  if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+if (menuBtn && navPanel) {
+  menuBtn.addEventListener('click', toggleMenu);
+
+  // tutup saat klik salah satu link nav
+  navPanel.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      // hanya tutup di layar kecil
+      if (window.matchMedia('(max-width: 768px)').matches) closeMenu();
+    });
+  });
+
+  // tutup saat tekan Esc
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // tutup otomatis saat kembali ke layar besar (resize)
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia('(max-width: 768px)').matches) closeMenu();
+  });
+}
