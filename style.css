@@ -1,8 +1,13 @@
-:root {
+:root { 
+  --headerH: 64px;
   --bg: #ffffff;
   --fg: #111111;
   --muted: #666666;
   --card: #f6f7f9;
+}
+
+section [id] {
+  scroll-margin-top: calc(var(--headerH) +16px) ;
 }
 
 .dark {
@@ -31,6 +36,36 @@ header {
 }
 
 nav a { margin-right: 12px; text-decoration: none; color: var(--fg); }
+
+/* ============== NAVBAR ACTIVE =============== */
+
+.nav a.active {
+  color: var(--accent);
+  position: relative;
+  font-weight: 700;
+}
+
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 100%; height: 2px;
+  background: var(--accent);
+  opacity: .9;
+  border-radius: 2px;
+}
+
+/* =============== SCROLL REVEAL ============== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
 
 .container { max-width: 900px; margin: 28px auto; padding: 0 16px; }
 
