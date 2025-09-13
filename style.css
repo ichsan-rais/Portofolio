@@ -1,154 +1,113 @@
-:root { 
+/* ========= Theme variables ========= */
+:root{
   --headerH: 64px;
-  --bg: #ffffff;
-  --fg: #111111;
-  --muted: #666666;
-  --card: #f6f7f9;
+  --bg:#0b0f14; --fg:#e6edf3; --muted:#9aa4af; --card:#0f141b;
+  --border:#253040; --accent:#64ffda; /* hijau lembut */
+}
+.light{
+  --bg:#ffffff; --fg:#111; --muted:#666; --card:#f6f7f9; --border:#d0d7de; --accent:#1e90ff;
 }
 
-section [id] {
-  scroll-margin-top: calc(var(--headerH) +16px) ;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:"Inter",system-ui,Arial,sans-serif;
+  background:var(--bg); color:var(--fg); line-height:1.6;
 }
 
-.dark {
-  --bg: #0f1115;
-  --fg: #eaeef5;
-  --muted: #aeb6c2;
-  --card: #171a21;
+/* anchor offset agar tidak tertutup header sticky */
+section[id]{ scroll-margin-top: calc(var(--headerH) + 16px); }
+
+/* ========= Layout umum ========= */
+.container{max-width:1000px; margin:28px auto; padding:0 20px}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:14px;
+  padding:24px; margin-bottom:18px; transition:transform .25s, box-shadow .25s, background .25s
+}
+.card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.25) }
+a{color:var(--fg); text-decoration:none}
+a:hover{color:var(--accent)}
+
+.btn{
+  border:1px solid var(--border); border-radius:10px; padding:8px 12px; background:transparent; color:var(--fg); cursor:pointer;
+  transition:transform .2s, box-shadow .2s, border-color .2s
+}
+.btn:hover{ border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.25) }
+
+/* ========= Header & Nav ========= */
+.site-header{
+  position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 20px; z-index:1000; transition:box-shadow .2s
+}
+.site-header.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.35) }
+.brand{ font-weight:800; letter-spacing:.3px }
+.nav a{ margin-right:14px; font-weight:600 }
+.nav a span{ color:var(--accent); margin-right:6px }
+.menu-btn{ display:none } /* disembunyikan di desktop */
+
+/* ========= Hero ========= */
+.kicker{color:var(--accent); letter-spacing:.2em; text-transform:uppercase; font-size:.85rem}
+.hero-title{font-size:clamp(2rem,5vw,3.25rem); margin:.2rem 0}
+.hero-sub{font-size:clamp(1.1rem,3.5vw,1.6rem); color:var(--muted); margin:.2rem 0 1rem}
+.actions{display:flex; gap:10px; flex-wrap:wrap}
+
+/* ========= About ========= */
+.about-grid{ display:grid; grid-template-columns:1fr 160px; gap:20px; align-items:start }
+.avatar{
+  width:160px; height:160px; border-radius:14px; object-fit:cover; border:1px solid var(--border);
 }
 
-* { box-sizing: border-box; }
+/* ========= Numbered heading ========= */
+.numhead{ display:flex; align-items:center; gap:12px; font-size:1.1rem; letter-spacing:.3px }
+.numhead span{ color:var(--accent); font-weight:800 }
 
-body {
-  margin: 0;
-  font-family: system-ui, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--fg);
-  line-height: 1.6;
+/* ========= Skills (badge) ========= */
+.skills{ display:flex; flex-wrap:wrap; gap:8px; padding-left:0; list-style:none }
+.skills li{ padding:6px 10px; border:1px solid var(--border); border-radius:999px }
+
+/* ========= Experience (timeline) ========= */
+.timeline{ display:grid; gap:16px }
+.timeline article{ border-left:2px solid var(--accent); padding-left:12px }
+.timeline header{ display:flex; justify-content:space-between; gap:10px; color:var(--muted) }
+.timeline p{ margin:.4rem 0 0 }
+
+/* ========= Projects ========= */
+.grid{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) }
+.pcard{ display:flex; flex-direction:column; justify-content:space-between; min-height:180px }
+.pcard .thumb{ width:100%; height:140px; object-fit:cover; border-radius:10px; border:1px solid var(--border); margin-bottom:10px }
+.pcard-link{ margin-top:8px; font-weight:600; color:var(--accent) }
+
+/* ========= Contact form (opsional) ========= */
+.contact{ display:grid; gap:10px; margin-top:12px }
+.in{ padding:10px 12px; border:1px solid var(--border); border-radius:10px; background:transparent; color:var(--fg) }
+.in:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(100,255,218,.15) }
+
+/* ========= Footer ========= */
+footer{ padding:28px; text-align:center; color:var(--muted) }
+.social{ display:flex; gap:14px; justify-content:center; margin-bottom:10px }
+.social a{ opacity:.9 }
+.social a:hover{ opacity:1; color:var(--accent) }
+
+/* ========= Nav active on scroll ========= */
+.nav a.active{ color:var(--accent); position:relative; font-weight:700 }
+.nav a.active::after{
+  content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px; background:var(--accent); opacity:.9; border-radius:2px
 }
 
-header {
-  position: sticky; top: 0;
-  background: var(--bg);
-  border-bottom: 1px solid #e5e7eb;
-  padding: 12px 16px;
-  display: flex; gap: 12px; align-items: center; justify-content: space-between;
-}
+/* ========= Reveal animation ========= */
+.reveal{ opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease }
+.reveal.revealed{ opacity:1; transform:none }
 
-nav a { margin-right: 12px; text-decoration: none; color: var(--fg); }
-
-/* ============== NAVBAR ACTIVE =============== */
-
-.nav a.active {
-  color: var(--accent);
-  position: relative;
-  font-weight: 700;
-}
-
-.nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -6px;
-  width: 100%; height: 2px;
-  background: var(--accent);
-  opacity: .9;
-  border-radius: 2px;
-}
-
-/* =============== SCROLL REVEAL ============== */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.revealed {
-  opacity: 1;
-  transform: none;
-}
-
-.container { max-width: 900px; margin: 28px auto; padding: 0 16px; }
-
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 14px;
-  margin-bottom: 16px;
-  transition: .25s;
-}
-
-.card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
-
-.btn {
-  border: 1px solid #d0d7de;
-  border-radius: 12px;
-  padding: 8px 12px;
-  background: transparent;
-  cursor: pointer;
-}
-
-.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-
-/* ===========================
-   HAMBURGER MENU (MOBILE)
-=========================== */
-
-/* tombol hamburger disembunyikan default (desktop) */
-.menu-btn { /* ADD */
-  display: none;
-}
-
-/* panel nav default (desktop) tetap baris biasa */
-#nav { /* hanya penegas, biarkan style nav-mu yang lama tetap berlaku */ }
-
-/* mobile rules */
-@media (max-width: 768px) {
-  /* tampilkan tombol hamburger di HP */
-  .menu-btn { /* ADD */
-    display: inline-block;
+/* ========= Mobile (<= 768px) ========= */
+@media (max-width:768px){
+  .menu-btn{ display:inline-block } /* tampilkan hamburger */
+  .nav{ /* panel dropdown */
+    position:fixed; top:var(--headerH); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--border);
+    transform:translateY(-120%); opacity:0; pointer-events:none; transition:transform .25s, opacity .25s;
+    display:flex; flex-direction:column; gap:12px; padding:12px 20px; z-index:999;
   }
-
-  /* nav di mobile jadi panel dropdown fixed di bawah header */
-  #nav { /* ADD */
-    position: fixed;
-    top: calc(var(--headerH));     /* pakai tinggi header agar tidak ketutup */
-    left: 0;
-    right: 0;
-    background: var(--bg);
-    border-bottom: 1px solid #e5e7eb;
-    padding: 12px 16px;
-
-    /* animasi slide */
-    transform: translateY(-120%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform .25s ease, opacity .25s ease;
-
-    /* susun link jadi kolom */
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    z-index: 999; /* di atas konten */
-  }
-
-  /* saat dibuka */
-  #nav.open { /* ADD */
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* rapikan link di mobile */
-  #nav a { /* ADD */
-    margin-right: 0;         /* override margin-right desktop */
-    padding: 8px 0;
-  }
-
-  /* header: pastikan di atas semua */
-  header {
-    z-index: 1000; /* ADD: di atas panel nav */
-  }
+  .nav.open{ transform:translateY(0); opacity:1; pointer-events:auto }
+  .nav a{ margin-right:0; padding:8px 0 }
+  .about-grid{ grid-template-columns:1fr } /* avatar turun ke bawah */
+  .avatar{ width:120px; height:120px; justify-self:start }
 }
-
-footer { padding: 24px; text-align: center; color: var(--muted); }

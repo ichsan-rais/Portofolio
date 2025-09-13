@@ -1,65 +1,172 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portofolio Ichsan Rais</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="container">
-      <strong>Ichsan Rais</strong>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ichsan Rais — Portfolio</title>
 
-      <button id="menu-toggle" class="btn menu-btn" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">☰</button>
-      <nav class="nav" id="nav">
-        <a class="nav-link" href="#about"><span>01.</span> About</a>
-        <a class="nav-link" href="#skills"><span>02.</span> Skills</a>
-        <a class="nav-link" href="#projects"><span>03.</span> Projects</a>
-        <a class="nav-link" href="#contact"><span>04.</span> Contact</a>
-      </nav>
-      <button id="toggle" class="btn">🌙</button>
-    </header>
+  <!-- SEO ringan -->
+  <meta name="description" content="Portofolio Ichsan Rais — web developer. Modern, cepat, responsif." />
+  <link rel="icon" href="favicon.ico" />
 
-    <main class="container">
-      <section id="about" class="card reveal">
-        <h1>Halo, saya Ichsan 👋</h1>
-        <p>Calon developer yang suka belajar konsisten. Ini adalah portofolio pertama saya.</p>
-      </section>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-      <section id="skills" class="card reveal">
-        <h2>Skills</h2>
-        <ul>
-          <li>HTML & CSS dasar</li>
-          <li>Git & Github (commit, push, pages)</li>
-          <li>JavaScript dasar</li>
-        </ul>
-      </section>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="site-header container">
+    <strong class="brand">Ichsan Rais</strong>
 
-      <section id="projects" class="card reveal">
-        <h2>Projects</h2>
-        <div class="grid">
-          <div class="card">
-            <strong>Belajar Git</strong>
-            <p>Repo catatan latihan Git.</p>
-            <a href="https://github.com/ichsan-rais/belajar-git" target="_blank">Lihat repo →</a>
-          </div>
-          <div class="card">
-            <strong>Portofolio</strong>
-            <p>Situs ini. Dibuat dengan HTML/CSS/JS dan Github Pages.</p>
-          </div>
+    <!-- Hamburger (mobile) -->
+    <button id="menu-toggle" class="btn menu-btn" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">☰</button>
+
+    <!-- Nav utama -->
+    <nav class="nav" id="nav">
+      <a class="nav-link" href="#about"><span>01.</span> About</a>
+      <a class="nav-link" href="#skills"><span>02.</span> Skills</a>
+      <a class="nav-link" href="#experience"><span>03.</span> Experience</a>
+      <a class="nav-link" href="#projects"><span>04.</span> Projects</a>
+      <a class="nav-link" href="#contact"><span>05.</span> Contact</a>
+    </nav>
+
+    <!-- Toggle tema -->
+    <button id="toggle" class="btn" aria-label="Toggle theme">🌙</button>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="card hero reveal">
+      <p class="kicker">Hi, my name is</p>
+      <h1 class="hero-title">Ichsan Rais.</h1>
+      <h2 class="hero-sub">I build things for the web.</h2>
+      <p class="hero-body">
+        Saya fokus pada pembuatan antarmuka web yang sederhana, cepat, dan aksesibel.
+        Portofolio ini masih berkembang—silakan lihat beberapa proyek dan pengalaman belajar saya.
+      </p>
+      <div class="actions">
+        <a class="chip" href="#projects">Lihat Projects</a>
+        <a class="chip" href="cv.pdf" download>Download CV</a> <!-- ganti cv.pdf dengan file kamu -->
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="card reveal">
+      <h3 class="numhead"><span>01.</span> About</h3>
+      <div class="about-grid">
+        <div>
+          <p>
+            Halo! Saya Ichsan, seorang learner yang tertarik membangun website
+            yang fokus pada kejelasan dan kenyamanan pengguna.
+            Saat ini saya memperdalam HTML, CSS, JavaScript, dan Git/GitHub.
+          </p>
+          <p>
+            Target jangka pendek saya adalah membuat beberapa proyek kecil
+            yang dipublikasikan dan terdokumentasi dengan baik.
+          </p>
         </div>
-      </section>
+        <img class="avatar" src="avatar.jpg" alt="Foto Ichsan" onerror="this.style.display='none'">
+      </div>
+    </section>
 
-      <section id="contact" class="card reveal">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:muhamadichsanrais04@gmail.com">muhamadichsanrais04@gmail.com</a></p>
-        <p>Github: <a href="https://github.com/ichsan-rais">github.com/ichsan-rais</a></p>
-      </section>
-    </main>
+    <!-- SKILLS -->
+    <section id="skills" class="card reveal">
+      <h3 class="numhead"><span>02.</span> Skills</h3>
+      <ul class="skills">
+        <li>HTML & Semantics</li>
+        <li>CSS / Responsive</li>
+        <li>JavaScript Dasar</li>
+        <li>Git & GitHub</li>
+        <li>Accessibility</li>
+        <li>Deploy (GitHub Pages)</li>
+      </ul>
+    </section>
 
-    <footer>© <span id="y"></span> Ichsan Rais</footer>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="card reveal">
+      <h3 class="numhead"><span>03.</span> Experience</h3>
+      <div class="timeline">
+        <article>
+          <header><strong>Belajar Mandiri</strong> <time>2025–Sekarang</time></header>
+          <p>Mengerjakan latihan rutin Git & GitHub, membangun portofolio, dan membaca dokumentasi web.</p>
+        </article>
+        <article>
+          <header><strong>Project Pribadi</strong> <time>2024</time></header>
+          <p>Mencoba berbagai landing page sederhana, menyiapkan workflow deploy via GitHub Pages.</p>
+        </article>
+      </div>
+    </section>
 
-    <!-- penting: script di akhir body -->
-    <script src="script.js"></script>
-  </body>
+    <!-- PROJECTS -->
+    <section id="projects" class="card reveal">
+      <h3 class="numhead"><span>04.</span> Projects</h3>
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="pcard">
+          <img class="thumb" src="project1.jpg" alt="Screenshot Project 1" onerror="this.style.display='none'">
+          <div class="pcard-body">
+            <strong>Belajar Git</strong>
+            <p>Repo catatan Git: commit, branch, push/pull, GitHub Pages.</p>
+          </div>
+          <a class="pcard-link" href="https://github.com/ichsan-rais/belajar-git" target="_blank" rel="noopener">Lihat repo →</a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="pcard">
+          <img class="thumb" src="project2.jpg" alt="Screenshot Project 2" onerror="this.style.display='none'">
+          <div class="pcard-body">
+            <strong>Portfolio</strong>
+            <p>Situs ini. Tema modern, dark mode, animasi reveal, dan mobile menu.</p>
+          </div>
+          <a class="pcard-link" href="https://ichsan-rais.github.io/portfolio/" target="_blank" rel="noopener">Lihat website →</a>
+        </article>
+
+        <!-- Card 3 (dummy) -->
+        <article class="pcard">
+          <img class="thumb" src="project3.jpg" alt="Screenshot Project 3" onerror="this.style.display='none'">
+          <div class="pcard-body">
+            <strong>Coming Soon</strong>
+            <p>Placeholder proyek berikutnya—misalnya to-do app sederhana.</p>
+          </div>
+          <a class="pcard-link" href="#" aria-disabled="true">Segera hadir</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card reveal">
+      <h3 class="numhead"><span>05.</span> Contact</h3>
+      <p>Ingin berdiskusi atau kolaborasi? Kirim email saja:</p>
+      <p><a class="btn" href="mailto:muhamadichsanrais04@gmail.com">Say Hello</a></p>
+
+      <!-- Form dummy (opsional): ganti action dengan Formspree jika ingin aktif) -->
+      <!--
+      <form class="contact" action="https://formspree.io/f/your-id" method="POST">
+        <input class="in" name="name" placeholder="Nama" required />
+        <input class="in" type="email" name="email" placeholder="Email" required />
+        <textarea class="in" name="message" rows="4" placeholder="Pesan..." required></textarea>
+        <button class="btn" type="submit">Kirim</button>
+      </form>
+      -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="social">
+      <!-- GitHub (SVG ikon kecil) -->
+      <a href="https://github.com/ichsan-rais" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.76.09-.75.09-.75 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.84 1.31 3.53 1 .11-.79.42-1.31.76-1.61-2.66-.31-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.57.12-3.27 0 0 1.01-.32 3.3 1.23a11.52 11.52 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.7.24 2.96.12 3.27.78.84 1.24 1.9 1.24 3.22 0 4.6-2.81 5.6-5.49 5.9.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+      </a>
+      <!-- Email icon -->
+      <a href="mailto:muhamadichsanrais04@gmail.com" aria-label="Email">
+        ✉️
+      </a>
+    </div>
+    © <span id="y"></span> Ichsan Rais
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
